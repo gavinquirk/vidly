@@ -34,8 +34,8 @@ namespace Vidly.Controllers
         // Details Action
         public ActionResult Details(int id)
         {
-            // Get customer with id param
-            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
+            // Get customer with membership type using id param
+            var customer = _context.Customers.Include(c => c.MembershipType).SingleOrDefault(c => c.Id == id);
 
             // If no customer, return 404
             if (customer == null)
