@@ -221,6 +221,14 @@
     <Compile Include="Migrations\201906132123586_AddBirthdateToCustomer1.Designer.cs">
       <DependentUpon>201906132123586_AddBirthdateToCustomer1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906140047001_AddGenreReleaseDateStockToMovie.cs" />
+    <Compile Include="Migrations\201906140047001_AddGenreReleaseDateStockToMovie.Designer.cs">
+      <DependentUpon>201906140047001_AddGenreReleaseDateStockToMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906140048389_AddDateAddedToMovie.cs" />
+    <Compile Include="Migrations\201906140048389_AddDateAddedToMovie.Designer.cs">
+      <DependentUpon>201906140048389_AddDateAddedToMovie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -354,6 +362,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906132123586_AddBirthdateToCustomer1.resx">
       <DependentUpon>201906132123586_AddBirthdateToCustomer1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906140047001_AddGenreReleaseDateStockToMovie.resx">
+      <DependentUpon>201906140047001_AddGenreReleaseDateStockToMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906140048389_AddDateAddedToMovie.resx">
+      <DependentUpon>201906140048389_AddDateAddedToMovie.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
