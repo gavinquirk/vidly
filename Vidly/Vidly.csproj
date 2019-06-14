@@ -229,9 +229,42 @@
     <Compile Include="Migrations\201906140048389_AddDateAddedToMovie.Designer.cs">
       <DependentUpon>201906140048389_AddDateAddedToMovie.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906140105449_AddGenreIdAndAnnotationsToMovie.cs" />
+    <Compile Include="Migrations\201906140105449_AddGenreIdAndAnnotationsToMovie.Designer.cs">
+      <DependentUpon>201906140105449_AddGenreIdAndAnnotationsToMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906140107527_SeedGenres.cs" />
+    <Compile Include="Migrations\201906140107527_SeedGenres.Designer.cs">
+      <DependentUpon>201906140107527_SeedGenres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906140115319_ChangeGenreToDataType.cs" />
+    <Compile Include="Migrations\201906140115319_ChangeGenreToDataType.Designer.cs">
+      <DependentUpon>201906140115319_ChangeGenreToDataType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906140117200_MovieGenreFix.cs" />
+    <Compile Include="Migrations\201906140117200_MovieGenreFix.Designer.cs">
+      <DependentUpon>201906140117200_MovieGenreFix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906140121316_stocktest.cs" />
+    <Compile Include="Migrations\201906140121316_stocktest.Designer.cs">
+      <DependentUpon>201906140121316_stocktest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906140123544_genretest2.cs" />
+    <Compile Include="Migrations\201906140123544_genretest2.Designer.cs">
+      <DependentUpon>201906140123544_genretest2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906140125027_ReAddGenreToMovie.cs" />
+    <Compile Include="Migrations\201906140125027_ReAddGenreToMovie.Designer.cs">
+      <DependentUpon>201906140125027_ReAddGenreToMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906140127508_SeedGenresAttemp2.cs" />
+    <Compile Include="Migrations\201906140127508_SeedGenresAttemp2.Designer.cs">
+      <DependentUpon>201906140127508_SeedGenresAttemp2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
@@ -314,6 +347,7 @@
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Movies\Index.cshtml" />
     <Content Include="Views\Movies\Random.cshtml" />
+    <Content Include="Views\Movies\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -368,6 +402,30 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906140048389_AddDateAddedToMovie.resx">
       <DependentUpon>201906140048389_AddDateAddedToMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906140105449_AddGenreIdAndAnnotationsToMovie.resx">
+      <DependentUpon>201906140105449_AddGenreIdAndAnnotationsToMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906140107527_SeedGenres.resx">
+      <DependentUpon>201906140107527_SeedGenres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906140115319_ChangeGenreToDataType.resx">
+      <DependentUpon>201906140115319_ChangeGenreToDataType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906140117200_MovieGenreFix.resx">
+      <DependentUpon>201906140117200_MovieGenreFix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906140121316_stocktest.resx">
+      <DependentUpon>201906140121316_stocktest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906140123544_genretest2.resx">
+      <DependentUpon>201906140123544_genretest2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906140125027_ReAddGenreToMovie.resx">
+      <DependentUpon>201906140125027_ReAddGenreToMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906140127508_SeedGenresAttemp2.resx">
+      <DependentUpon>201906140127508_SeedGenresAttemp2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
