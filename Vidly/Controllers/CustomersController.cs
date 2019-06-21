@@ -37,6 +37,7 @@ namespace Vidly.Controllers
 
         // Save Customer
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Customer customer)
         {
             // Validation Check
