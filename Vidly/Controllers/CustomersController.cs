@@ -35,16 +35,30 @@ namespace Vidly.Controllers
             return View("CustomerForm", viewModel);
         }
 
-        // Create Customer
+        // Save Customer
         [HttpPost]
         public ActionResult Save(Customer customer)
         {
+            // Validation Check
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new CustomerFormViewModel
+                {
+                    Customer = customer,
+                    MembershipTypes = _context.MembershipTypes.ToList()
+                };
+                return View("CustomerForm", viewModel);
+            }
+
+            // If customer does not already exist...
             if (customer.Id == 0)
             _context.Customers.Add(customer);
             else
             {
+                // Create a new customer
                 var customerInDb = _context.Customers.Single(c => c.Id == customer.Id);
 
+                // Set new customer data from form data
                 customerInDb.Name = customer.Name;
                 customerInDb.Birthdate = customer.Birthdate;
                 customerInDb.MembershipTypeId = customer.MembershipTypeId;
