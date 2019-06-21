@@ -1,31 +1,29 @@
-﻿@model IEnumerable<Vidly.Models.Movie>
-    @{
-        ViewBag.Title = "Movies";
-        Layout = "~/Views/Shared/_Layout.cshtml";
-    }
+﻿
+@model IEnumerable<Vidly.Models.Movie>
 
-    <h2>Movies</h2>
-    @if (!Model.Any())
-    {
-        <p>We don't have any movies yet</p>
-    }
-    else
-    {
-        <table class="table table-bordered table-hover">
-            <thead>
-                <tr>
-                    <th>Movie</th>
-                    <th>Genre</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var movie in Model)
-                {
-                <tr>
-                    <td>@Html.ActionLink(movie.Name, "Details", "Movies", new { id = movie.Id }, null)</td>
-                    <td>@movie.Genre.Name</td>
-                </tr>
-                }
-            </tbody>
-        </table>
-    }
+@{
+    ViewBag.Title = "Movies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Movies</h2>
+<p>
+    @Html.ActionLink("New Movie", "New", "Movies", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Movie</th>
+            <th>Genre</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var movie in Model)
+        {
+            <tr>
+                <td>@Html.ActionLink(movie.Name, "Edit", "Movies", new { id = movie.Id }, null)</td>
+                <td>@movie.Genre.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>
