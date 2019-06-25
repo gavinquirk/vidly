@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace Vidly.Controllers
 {
+    [AllowAnonymous] // Allow anonymous users to access home page view and actions
     public class HomeController : Controller
     {
         public ActionResult Index()
