@@ -9,6 +9,7 @@ namespace Vidly
         {
             filters.Add(new HandleErrorAttribute()); // Redirects to error page when throwing exception
             filters.Add(new AuthorizeAttribute()); // Require authorization globally
+            filters.Add(new RequireHttpsAttribute()); // Must use HTTPS
         }
     }
 }
