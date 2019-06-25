@@ -75,10 +75,8 @@ namespace Vidly.Controllers
         // Index
         public ViewResult Index()
         {
-            var customers = _context.Customers.Include(c => c.MembershipType).ToList();
-
-            // Return view with customers list data
-            return View(customers);
+            // Data is being requested from data table in view
+            return View();
         }
 
         // Details
