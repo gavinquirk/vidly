@@ -27,10 +27,15 @@ namespace Vidly.Controllers
         // Index View Result
         public ViewResult Index()
         {
-            return View();
+            // If user has CanManageMovies role, return admin list
+            if (User.IsInRole(RoleName.CanManageMovies))
+                return View("List");
+            // Else if user is a guest, return read only list
+            return View("ReadOnlyList");
         }
 
         // Create New Movie
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ViewResult New()
         {
             var genres = _context.Genres.ToList();
@@ -44,6 +49,7 @@ namespace Vidly.Controllers
         }
 
         // Edit Movie
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult Edit(int id)
         {
             var movie = _context.Movies.SingleOrDefault(c => c.Id == id);
@@ -60,6 +66,7 @@ namespace Vidly.Controllers
         }
 
         // Save Movie
+        [Authorize(Roles = RoleName.CanManageMovies)]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Save(Movie movie)
