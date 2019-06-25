@@ -316,6 +316,8 @@
     <Content Include="obj\Debug\Vidly.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\Vidly.dll" />
     <Content Include="obj\Debug\Vidly.pdb" />
+    <Content Include="Scripts\bootbox.js" />
+    <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
