@@ -10,14 +10,14 @@
     <div class="form-group">
         <label>Customer</label>
         <div class="tt-container">
-            <input id="customer" data-rule-validCustomer="true" required type="text" value="" class="form-control" />
+            <input id="customer" name="customer"  data-rule-validCustomer="true" required type="text" value="" class="form-control" />
         </div>
     </div>
 
     <div class="form-group">
         <label>Movie</label>
         <div class="tt-container">
-            <input id="movie" type="text" value="" class="form-control" />
+            <input id="movie" name="movie" data-rule-atLeastOneMovie="true" type="text" value="" class="form-control" />
         </div>
     </div>
 
@@ -88,10 +88,14 @@
                 return vm.customerId && vm.customerId !== 0;
             }, "Please select a valid customer.");
 
+            // Custom validation -- ensure at least one movie is selected
+            $.validator.addMethod("atLeastOneMovie", function () {
+                return vm.movieIds.length > 0;
+            }, "Please select at least one movie.");
+
             // Submit with jquery validation
-            $("#newRental").validate({
+            var validator = $("#newRental").validate({
                 submitHandler: function () {
-                    e.preventDefault();
 
                     $.ajax({
                         url: "/api/newRentals",
@@ -100,10 +104,20 @@
                     })
                     .done(function () {
                         toastr.success("Rentals successfully recorded.");
+
+                        $("#customer").typeahead("val", "");
+                        $("#movie").typeahead("val", "");
+                        $("#movies").empty();
+
+                        vm = { movieIds: [] };
+
+                        validator.resetForm();
                     })
                     .fail(function () {
-                        tastr.error("Something unexpected happened");
-                    });
+                        toastr.error("Something unexpected happened");
+                        });
+
+                    return false; // Prevent form submission
                 }
             });
         });
