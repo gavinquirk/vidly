@@ -73,6 +73,22 @@
                 $("#movies").append("<li class='list-group-item'>" + movie.name + "</li>");
                 $("#movie").typeahead("val", "");
                 vm.movieIds.push(movie.id);
+                });
+
+            $("#newRental").submit(function (e) {
+                e.preventDefault();
+
+                $.ajax({
+                    url: "/api/newRentals",
+                    method: "post",
+                    data: vm
+                })
+                    .done(function () {
+                        toastr.success("Rentals successfully recorded.");
+                    })
+                    .fail(function () {
+                        tastr.error("Something unexpected happened");
+                    });
             });
         });
     </script>
