@@ -10,7 +10,7 @@
     <div class="form-group">
         <label>Customer</label>
         <div class="tt-container">
-            <input id="customer" type="text" value="" class="form-control" />
+            <input id="customer" data-rule-validCustomer="true" required type="text" value="" class="form-control" />
         </div>
     </div>
 
@@ -31,11 +31,17 @@
 </form>
 @section scripts
 {
+    @Scripts.Render("~/bundles/jqueryval")
+
     <script>
         $(document).ready(function () {
+
+            // ViewModel
             var vm = {
                 movieIds: []
             };
+
+            // Customers
             var customers = new Bloodhound({
                 datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
                 queryTokenizer: Bloodhound.tokenizers.whitespace,
@@ -54,6 +60,8 @@
                 }).on("typeahead:select", function (e, customer) {
                     vm.customerId = customer.id;
                 });
+
+            // Movies
             var movies = new Bloodhound({
                 datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
                 queryTokenizer: Bloodhound.tokenizers.whitespace,
@@ -75,20 +83,28 @@
                 vm.movieIds.push(movie.id);
                 });
 
-            $("#newRental").submit(function (e) {
-                e.preventDefault();
+            // Custom validation -- ensure customer exists
+            $.validator.addMethod("validCustomer", function () {
+                return vm.customerId && vm.customerId !== 0;
+            }, "Please select a valid customer.");
 
-                $.ajax({
-                    url: "/api/newRentals",
-                    method: "post",
-                    data: vm
-                })
+            // Submit with jquery validation
+            $("#newRental").validate({
+                submitHandler: function () {
+                    e.preventDefault();
+
+                    $.ajax({
+                        url: "/api/newRentals",
+                        method: "post",
+                        data: vm
+                    })
                     .done(function () {
                         toastr.success("Rentals successfully recorded.");
                     })
                     .fail(function () {
                         tastr.error("Something unexpected happened");
                     });
+                }
             });
         });
     </script>
